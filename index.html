@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>바다가고싶다</title>
+</head>
+
+<style type="text/css">
+
+@font-face {
+    font-family: 'BookkMyungjo-Bd';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/BookkMyungjo-Bd.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+	
+	html{margin: 0px; background-color: black;font-family: 'BookkMyungjo-Bd'; }
+	body{margin: 0px; }
+	nav{background-color:rgb(051,051,051); color: white; position: fixed; z-index: 1000;
+			}
+		.flex{display: flex; flex-wrap:wrap; padding: 10px 0px; gap: 0%}
+		.flex div {overflow: hidden;}
+		.flex h2{ width: 33%; border: 1px solid black; }
+		.flex div h2{font-size: 14px}
+		.flex div img{display: block;}
+		.flex p{top: 0; left: 0; right: 0}
+			.menu {width: 800px; margin: auto;}
+			.menu li{list-style-type: none;margin-left: auto; margin-right: auto;}
+			.menu li a{display: block; padding: 10px 20px;
+			        text-decoration: none; color: white; gap: 30%}
+			.menu li a:hover{background: white;
+			                color:#346341; border-radius: 40px;}
+			.logo{padding-bottom: 40px; padding-top: 30px; padding-right: 500px; padding-left: 60px; font-size: 1.5rem;}
+
+
+	h1{}	
+	.bg1{position: relative;
+		width: 100%;
+            height: auto;
+           ;}
+
+    .overlay {
+      position: absolute;
+      top: 30%;
+      left:20%;
+      background-size: /*cover;
+      background-position: center;
+      display:*/
+      z-index: 1;
+    }
+
+    .video-container {
+      position: relative;
+    }
+    video { 
+    	position: relative;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    .audio-button {
+      background-color: rgb(051,051,051);
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      cursor: pointer;
+      border-radius: 30px;
+    }
+
+    .audio-button:hover {
+      background-color:white;
+      color: rgb(051,051,051);
+    }
+
+    #toggleImage{display: none;}
+    #toggleImage2{display: none;}
+    #toggleImage3{display: none;}
+
+    footer{
+    	color: whitesmoke; text-align: center;padding-top: 100px; padding-bottom: 100px;
+    }
+
+    button{ border: none;
+    	list-style-type: none;
+    	display: block;
+    	text-decoration: none;
+    	border-radius: 30px;
+    	background-color: rgb(051,051,051);
+    	color: whitesmoke;
+    	font-family:'BookkMyungjo-Bd'
+    }
+
+
+</style>
+
+<header>
+	<nav>
+		<div class="wrap flex">
+	     <div class="logo">바다가 생각나는 소설</div>
+	     <ul class="menu flex">
+	        <li>클릭 시 음원이 같이 나옵니다</li>
+	        <li><button onclick="toggleImage()">노인과 바다</button></li>
+	        <li><button onclick="toggleImage2()">모비딕</button></li>
+	        <li><button onclick="toggleImage3()">난중일기</button></li>
+	  <li>
+      <button class="audio-button" onclick="playAudio()">바다소리</button>
+      <button class="audio-button" onclick="pauseAudio()">정지</button>
+    </li>
+	                </ul>
+	     </div>
+	</nav>	
+</header>
+
+
+
+<body>
+
+
+
+<div class="overlay">
+	<img id="toggleImage" src="pp1.jpg" alt="Toggle Image">
+</div>
+
+<div class="overlay">
+	<img id="toggleImage2" src="pp2.jpg" alt="Toggle Image">
+</div>
+
+<div class="overlay">
+	<img id="toggleImage3" src="pp3.jpg" alt="Toggle Image">
+</div>
+
+
+<div class="video-container">
+	<div class="bg1">
+	<video src="bg.mp4" id="bg" autoplay loop muted></video>
+	</div>
+</div>
+
+
+<audio id="myAudio" src="waves.mp3"></audio>
+
+<audio id="stars" src="stars.mp3"></audio>
+<audio id="spring" src="spring.mp3"></audio>
+<audio id="van" src="van.mp3"></audio>
+
+<script type="text/javascript">
+
+			let playstate = "stop";
+			but.onclick= function(){ 
+				if(playstate == "stop") {
+					anime.play();
+					but.innerHTML = "STOP"
+					but. style. background = "red"
+					playstate = "play";
+				}else if(playstate == "play"){
+					anime.pause()
+					but.innerHTML = "PLAY"
+					but. style. background = "yellow"
+					playstate = "stop"
+				}
+				document.body.style.background = "blue"
+				tt.innerHTML = "영상이 재생중입니다."
+			};
+			
+
+	 function playAudio() {
+    var audio = document.getElementById('myAudio');
+    audio.play();
+  }
+
+  function pauseAudio() {
+    var audio = document.getElementById('myAudio');
+    audio.pause();
+  }
+
+  function toggleImage() {
+    var img = document.getElementById('toggleImage');
+     var audio = document.getElementById('spring');
+    if (img.style.display === 'none' || img.style.display === '') {
+      img.style.display = 'block';  // 이미지 보이기
+      audio.play(); // 음원 재생''
+    } else {
+      img.style.display = 'none';   // 이미지 숨기기
+      audio.pause(); // 음원 정지
+      audio.currentTime = 0; // 음원 재생 위치 초기화
+    }
+  }
+  function toggleImage2() {
+    var img = document.getElementById('toggleImage2');
+    var audio = document.getElementById('stars');
+    if (img.style.display === 'none' || img.style.display === '') {
+      img.style.display = 'block';  // 이미지 보이기
+      audio.play(); // 음원 재생''
+    } else {
+      img.style.display = 'none';   // 이미지 숨기기
+      audio.pause(); // 음원 정지
+      audio.currentTime = 0; // 음원 재생 위치 초기화
+    }
+  }
+  function toggleImage3() {
+    var img = document.getElementById('toggleImage3');
+    var audio = document.getElementById('van');
+    if (img.style.display === 'none' || img.style.display === '') {
+      img.style.display = 'block';  // 이미지 보이기
+      audio.play(); // 음원 재생''
+    } else {
+      img.style.display = 'none';   // 이미지 숨기기
+      audio.pause(); // 음원 정지
+      audio.currentTime = 0; // 음원 재생 위치 초기화
+    }
+  }
+
+		</script>
+
+
+			<footer>
+
+			바다가 생각나는 소설&copy; 2024 이소은 모든 권리보유.<br>
+			Seoultech.Visual Communication Design. WebInteractionDesign
+		
+			</footer>
+
+
+</body>
+</html>
